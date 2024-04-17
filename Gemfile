@@ -23,9 +23,11 @@ group :jekyll_plugins do
     gem 'jekyll-github-metadata'
     gem 'jekyll-target-blank'
     gem 'htmlbeautifier'
-    gem 'webrick'
     gem 'htmlcompressor'
     gem 'faraday-retry'
+    gem 'csv'
+    gem 'observer'  
+
 end
 group :other_plugins do
     gem 'css_parser'
