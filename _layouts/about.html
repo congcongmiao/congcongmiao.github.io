@@ -1,0 +1,130 @@
+---
+layout: default
+---
+
+<!-- about.html -->
+      <div class="post">
+        <header class="post-header">
+          <h1 class="post-title">
+           <!-- {% if site.title == "blank" -%}<span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }} {{ site.last_name }}{%- else -%}{{ site.title }}{%- endif %} -->
+          </h1>
+          <p class="desc">{{ page.subtitle }}</p>
+        </header>
+
+        <article>
+          {% if page.profile -%}
+          <div class="profile float-{%- if page.profile.align == 'left' -%}left{%- else -%}right{%- endif -%}">
+            {%- if page.profile.image %}
+              {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
+              {% include figure.html 
+              path=profile_image_path 
+              class="img-fluid z-dept-1 rounded"
+              alt=page.profile.image -%}
+            {% endif -%}
+            {%- if page.profile.address %}
+            <div class="address">
+              {{ page.profile.address }}
+            </div>
+            {%- endif %}
+          </div>
+          {%- endif %}
+
+          <div class="clearfix">
+            {{ content }}
+          </div>
+          
+          {%- include research.html %}
+          {%- include bio.html %}
+          <!-- {% if page.news -%} -->
+          <!-- News -->
+          {%- include news.html %}
+          <!-- {%- endif %} -->
+          
+          <div class="review-header">
+            {%- include review.html %}
+          </div>
+          
+          <div class="publications-header">
+            <h2> <strong>Publications</strong>
+                (<span id="toggle-selected" class="toggle-link toggle-active">Selected</span> | 
+                 <span id="toggle-full-list" class="toggle-link toggle-inactive">Full List</span>)
+            </h2>
+        </div>
+        <div id="publications-content">
+            <div id="selected-papers" style="display: block;">
+              <div class="publications">
+                {% include selected_papers.html %}
+              </div>
+            </div>
+            <div id="full-list-papers" style="display: none;">
+              <div class="publications">
+                {% include full_papers.html %}
+              </div>
+            </div>
+        </div>
+        
+        {%- if page.social %}
+          <!-- Social -->
+          <div class="social">
+            <div class="contact-icons">
+            {% include social.html %}
+            </div>
+
+            <div class="contact-note">
+              {{ site.contact_note }}
+            </div>
+            
+          </div>
+          {%- endif %}
+        </article>
+
+</div>
+
+
+
+
+
+<script>
+  document.getElementById('toggle-full-list').addEventListener('click', function() {
+      document.getElementById('selected-papers').style.display = 'none';
+      document.getElementById('full-list-papers').style.display = 'block';
+      updateToggle('full');
+  });
+
+  document.getElementById('toggle-selected').addEventListener('click', function() {
+      document.getElementById('full-list-papers').style.display = 'none';
+      document.getElementById('selected-papers').style.display = 'block';
+      updateToggle('selected');
+  });
+
+  function updateToggle(active) {
+      var selected = document.getElementById('toggle-selected');
+      var fullList = document.getElementById('toggle-full-list');
+      if(active === 'full') {
+          selected.classList.remove('toggle-active');
+          selected.classList.add('toggle-inactive');
+          fullList.classList.add('toggle-active');
+          fullList.classList.remove('toggle-inactive');
+      } else {
+          selected.classList.add('toggle-active');
+          selected.classList.remove('toggle-inactive');
+          fullList.classList.remove('toggle-active');
+          fullList.classList.add('toggle-inactive');
+      }
+  }
+</script>
+<style>
+  .toggle-link {
+      cursor: pointer;
+      color: purple;
+      margin: 0 5px;
+  }
+
+  .toggle-active {
+      text-decoration: underline;
+  }
+
+  .toggle-inactive {
+      text-decoration: none;
+  }
+</style>

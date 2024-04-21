@@ -7,12 +7,7 @@ body {
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
   }
 }
@@ -28,23 +23,30 @@ body.sticky-bottom-footer {
 }
 
 .container {
-  max-width: $max-content-width;
+  // max-width: $max-content-width;
+  max-width: 95%;
+  
+  // max-width: 1000px;
+  margin-left: auto; /* Centers the content */
+  margin-right: auto; /* Centers the content */
 }
 
 // Profile
 .profile {
   img {
-    width: 100%;
+    width: 90%;
   }
 }
 
 // TODO: redefine content layout.
+
 
 /******************************************************************************
  * Publications
  ******************************************************************************/
 
 // TODO: redefine publications layout.
+
 
 /*****************************************************************************
 * Projects
