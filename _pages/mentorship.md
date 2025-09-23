@@ -8,6 +8,7 @@ nav_order: 6
 ---
 
 - Students (during work experience in Tencent)
+    - **Sirui Li** (B.S.in BUPT) Internship in Tencent
     - **Yiren Zhao** (B.S.in University of Toronto) Internship in Tencent
     - **Siyuan Chai** (B.S.in Northwestern University) Internship in Tencent → PhD student @ University of Illinois Urbana-Champaign
     - **Quan Yuan** (M.S.in Tsinghua University) Internship in Tencent
